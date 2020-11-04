@@ -24,7 +24,7 @@ h1 {
     font-size: 6em;
     background-color: blueviolet;
     position: absolute;
-    
+    cursor: pointer;    
 }
 
 .square-1 {
@@ -106,5 +106,6 @@ h1 {
     background-color: white;
     top: 300px;
     left: 300px;
+    cursor: auto;
 }
 
