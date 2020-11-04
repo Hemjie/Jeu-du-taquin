@@ -27,5 +27,11 @@ h1 {
     margin: 3px;
     text-align: center;
     font-size: 10em;
+    background-color: blueviolet;
+}
+
+.square-16 {
+    border: none;
+    background-color: white;
 }
 
