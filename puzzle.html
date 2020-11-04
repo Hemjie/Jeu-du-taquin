@@ -48,21 +48,22 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script>
-        var top16 = $(".square-16").css("top");
-        var left16 = $(".square-16").css("left");
-        var square16 = $(".square-16");
-        
         $(".square").click(function() {
+            var top16 = $(".square-16").css("top");
+            var left16 = $(".square-16").css("left");
+            var square16 = $(".square-16");
             var topThis = $(this).css("top");
             var leftThis = $(this).css("left");
             var square = $(this);
 
             square.css("top", top16);
             square.css("left", left16);
-            console.log(square.css("top"));
-            console.log(square.css("left"));
+            console.log("top this " + square.css("top"));
+            console.log("left this " + square.css("left"));
             square16.css("top", topThis);
             square16.css("left", leftThis); 
+            console.log("top 16 " + square16.css("top"));
+            console.log("left 16 " + square16.css("left"));
         });
     </script>
 </body>
