@@ -14,19 +14,19 @@ h1 {
 }
 
 .game {
-    width: 800px;
-    height: 800px;
+    width: 500px;
+    height: 500px;
     border: 1px solid black;
     margin: auto;
 }
 
 .square {
-    width: 24%;
-    height: 24%;
+    width: 23%;
+    height: 23%;
     border: 1px solid black;
     margin: 3px;
     text-align: center;
-    font-size: 10em;
+    font-size: 6em;
     background-color: blueviolet;
 }
 
