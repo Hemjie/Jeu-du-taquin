@@ -56,20 +56,38 @@
         var leftList = [0, 100, 200, 300];
         var indiceList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
         var randomIndice = 0;
-
+        // exo3 aléatoire
         for (var t = 0; t < topList.length; t++) {
             for (var l = 0; l <leftList.length; l++) {
                 randomIndice = Math.floor(Math.random()*(indiceList.length));
-                console.log(randomIndice);
-                console.log("top : " + topList[t]);
-                console.log("left : " + leftList[l]);
                 $(".square-"+indiceList[randomIndice]).css("top", topList[t]);
                 $(".square-"+indiceList[randomIndice]).css("left", leftList[l]);
                 indiceList.splice(randomIndice, 1);
-                console.log(indiceList);
             }
         }
-        // petit 2
+
+        var counter = 0;
+        var clic = 0;
+        var seconds = 0;
+        var minutes = 0;
+        var hours = 0;
+
+        // Bonus2 chrono
+        var chrono = setInterval(function () {
+            seconds++;      
+            if (seconds == 60) {
+                ++minutes;
+                seconds = 0;
+            }
+            if (minutes == 60) {
+                ++hours;
+                minutes = 0;
+            }
+            $(".time").text("Temps: " + hours +"h " + minutes+ "m " + seconds + "s");
+        },1000);
+        
+
+        // exo2 changement position
         /* $(".square").click(function() {
             var top16 = $(".square-16").css("top");   //on récupère positions carré vide
             var left16 = $(".square-16").css("left");
@@ -82,39 +100,10 @@
             square.css("left", left16);
             square16.css("top", topThis);
             square16.css("left", leftThis); 
-        }); */
 
+        });  */
         
-        var counter = 0;
-        var clic = 0;
-        var seconds = 0;
-        var minutes = 0;
-        var hours = 0;
-
-        // Bonus chrono
-        setInterval(function () {
-            seconds++;      
-            if (seconds == 60) {
-                ++minutes;
-                seconds = 0;
-            }
-            if (minutes == 60) {
-                ++hours;
-                minutes = 0;
-            }
-            $(".time").text("Temps: " + hours +"h " + minutes+ "m " + seconds + "s");
-        },1000);
-
-        if (hours < 10) {
-                hours = "0" + hours;
-            };
-            if (minutes < 10) {
-                minutes = "0" + minutes;
-            }
-            if (seconds < 10) {
-                seconds = "0" + seconds;
-            }
-        // partie 4
+        // exo4 conditions de déplacements
         $(".square").click(function() {
             var top16 = $(".square-16").css("top");   //on récupère positions carré vide
             var left16 = $(".square-16").css("left");
@@ -133,10 +122,37 @@
                 square.css("left", left16);
                 square16.css("top", topThis);
                 square16.css("left", leftThis); 
-                //bonus 1 nb de déplacements
+                //bonus1 nb de déplacements
                 $(".counter").text("Nombre de déplacements : " + ++counter);
             };
-        });
+
+            //Bonus2bis Arrêt du chrono à la fin du jeu
+            console.log("square1 top : " + $(".square-1").css("top"));
+            console.log("square1 left : " + $(".square-1").css("left"));
+
+            if ($(".square-1").css("top") == "0px" && $(".square-1").css("left") == "0px"
+            && $(".square-2").css("top") == "0px" && $(".square-2").css("left") == "100px"
+            && $(".square-3").css("top") == "0px" && $(".square-3").css("left") == "200px"
+            && $(".square-4").css("top") == "0px" && $(".square-4").css("left") == "300px"
+            && $(".square-5").css("top") == "100px" && $(".square-5").css("left") == "0px"
+            && $(".square-6").css("top") == "100px" && $(".square-6").css("left") == "100px"
+            && $(".square-7").css("top") == "100px" && $(".square-7").css("left") == "200px"
+            && $(".square-8").css("top") == "100px" && $(".square-8").css("left") == "300px"
+            && $(".square-9").css("top") == "200px" && $(".square-9").css("left") == "0px"
+            && $(".square-10").css("top") == "200px" && $(".square-10").css("left") == "100px"
+            && $(".square-11").css("top") == "200px" && $(".square-11").css("left") == "200px"
+            && $(".square-12").css("top") == "200px" && $(".square-12").css("left") == "300px"
+            && $(".square-13").css("top") == "300px" && $(".square-13").css("left") == "0px"
+            && $(".square-14").css("top") == "300px" && $(".square-14").css("left") == "100px"
+            && $(".square-15").css("top") == "300px" && $(".square-15").css("left") == "200px"
+            && $(".square-16").css("top") == "300px" && $(".square-16").css("left") == "300px") {
+                setTimeout(function() {
+                    clearInterval(chrono);
+                    $(".time").text("Temps: 00h 00m 00s");
+                })
+            }
+        }); 
+
         
 
     </script>
