@@ -44,7 +44,7 @@
                     <div class="square square-15">15</div>
                     <div class="square square-16"></div>
                 </div>
-                <div class="counter">Nombre de coups: 0</div>
+                <div class="counter">Nombre de déplacements: 0</div>
             </div>
         </div>
 
@@ -86,7 +86,6 @@
         // partie 4
         var counter = 0;
         $(".square").click(function() {
-            $(".counter").text("Nombre de coups : " + ++counter);
             var top16 = $(".square-16").css("top");   //on récupère positions carré vide
             var left16 = $(".square-16").css("left");
             var square16 = $(".square-16");
@@ -104,6 +103,7 @@
                 square.css("left", left16);
                 square16.css("top", topThis);
                 square16.css("left", leftThis); 
+                $(".counter").text("Nombre de déplacements : " + ++counter);
             };
         });
         
