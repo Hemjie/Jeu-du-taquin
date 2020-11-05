@@ -1,7 +1,9 @@
 # jQuery-taquin
 création d'un puzzle
+![taquin](/maquette-taquin.png)
 On va essayer de créer un Taquin (numéros) en Javascript / jQuery
         http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm
+
         
         On devra utiliser GitHub. Voici la liste des fonctionnalités à implémenter:
         1 - Créer l'apparence du jeu avec des cases. On va commencer par un 4 par 4.
@@ -15,4 +17,3 @@ On va essayer de créer un Taquin (numéros) en Javascript / jQuery
         BIG BONUS: Adapter le jeu pour que cela fonctionne avec une image (On peut découper une image avec un background image et un background position)
         BONUS: On arrive sur le jeu, on voit l'image complète, on clique sur jouer, elle se mélange, le chrono se déclenche. On pourra également recommencer la partie.
         
-        ![maquette-taquin](/maquette.png)
