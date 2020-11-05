@@ -35,82 +35,101 @@ h1 {
     position: absolute;
     cursor: pointer;    
     border-radius: 5px;
+    /* BIG BONUS : Avec une image */
+    background-image: url(Female_Snowy_Owl.jpg);
+    background-size: 400px;
 }
 
 .square-1 {
     top: 0px;
     left: 0px;
+    background-position: 0 0;
 }
 
 .square-2 {
     top: 0px;
     left: 100px;
+    background-position: 0 100px;
 }
 
 .square-3 {
     top: 0px;
     left: 200px;
+    background-position: 0 200px;
 }
 
 .square-4 {
     top: 0px;
     left: 300px;
+    background-position: 0 300px;
 }
 
 .square-5 {
     top: 100px;
     left: 0px;
+    background-position: 100px 0;
 }
 
 .square-6 {
     top: 100px;
     left: 100px;
+    background-position: 100px 100px;
 }
 
 .square-7 {
     top: 100px;
     left: 200px;
+    background-position: 100px 200px;
 }
 
 .square-8 {
     top: 100px;
     left: 300px;
+    background-position: 100px 300px;
 }
 
 .square-9 {
     top: 200px;
     left: 0px;
+    background-position: 200px 0;
 }
 
 .square-10 {
     top: 200px;
     left: 100px;
+    background-position: 200px 100px;
 }
 
 .square-11 {
     top: 200px;
     left: 200px;
+    background-position: 200px 200px;
 }
 
 .square-12 {
     top: 200px;
     left: 300px;
+    background-position: 200px 300px;
 }
 
 .square-13 {
     top: 300px;
     left: 0px;
+    background-position: 300px 0;
 }
 
 .square-14 {
     top: 300px;
     left: 100px;
+    background-position: 300px 100px;
 }
 
 .square-15 {
     top: 300px;
     left: 200px;
+    background-position: 300px 200px;
 }
+
 .square-16 {
     border: none;
     background: none;
