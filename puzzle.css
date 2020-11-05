@@ -1,20 +1,34 @@
+body {
+    background-color: #d4d1d1;
+}
+
 .page {
     width: 1000px;
-    height: 1000px;
+    height: 700px;
     margin: auto;
 }
 
 h1 {
     text-align: center;
     width: 400px;
-    margin: auto;
+    margin-left: 305px;
     margin-bottom: 20px;
-    color: #5a5a5a;
+    color: #b3a818;
     font-weight: bold;
 }
 button {
     position: absolute;
-    left: 700px;
+    top: 100px;
+    left: 734px;
+    background-color: #dace2c;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 2px solid #949292;
+    padding : 10px;
+    box-shadow: 0 0 5px black;
+    color: #5a5a5a;
+
 }
 
 .game {
@@ -22,23 +36,22 @@ button {
     height: 400px;
     border: 5px solid grey;
     position: absolute;
+    top: 150px;
     margin: 30px 300px;
+    background-color: #5a5a5a;
+    box-shadow: 0 0 10px black;
 }
 
 .square {
-    width: 94px;
-    height: 84px;
-    margin: 1px;
-    border: 2px solid #949292;
+    width: 99px;
+    height: 99px;
     text-align: center;
     font-size: 4em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    padding-top: 10px;
     background: radial-gradient(#ffffff, #5a5a5a);
     position: absolute;
     cursor: pointer;    
-    border-radius: 5px;
     /* BIG BONUS : Avec une image */
     background-image: url(Female_Snowy_Owl.jpg);
     background-size: 400px;
@@ -138,20 +151,36 @@ button {
 .square-16 {
     border: none;
     background: none;
-    background-color: white;
+    background-color: #000000;
     top: 300px;
     left: 300px;
     cursor: auto;
 }
 
-.counter {
+.info {
+    background-color: #c2b726;
     position: absolute;
-    top: 510px;
-    left: 565px;
+    top: 600px;
+    left: 573px; 
+    padding: 10px;
+    box-shadow: 0 0 3px #5a5a5a;
+
 }
 
-.time {
+.flex {
+    width: 380px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.win {
     position: absolute;
-    top: 510px;
-    left: 850px;
+    top: 360px;
+    left: 645px;
+    background-color: #dace2c;
+    color: #751411;
+    font-size: 1.5em;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
 }
