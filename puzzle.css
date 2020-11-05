@@ -125,3 +125,9 @@ h1 {
     top: 480px;
     left: 560px;
 }
+
+.time {
+    position: absolute;
+    top: 480px;
+    left: 800px;
+}
