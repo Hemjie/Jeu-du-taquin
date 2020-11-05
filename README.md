@@ -1,7 +1,8 @@
 # jQuery-taquin
-création d'un puzzle
+création d'un jeu du taquin en jQuery
 ![taquin](/maquette-taquin.png)
-On va essayer de créer un Taquin (numéros) en Javascript / jQuery
+
+        On va essayer de créer un Taquin (numéros) en Javascript / jQuery
         http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm
 
         
