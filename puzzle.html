@@ -26,22 +26,23 @@
         <div class="page">
             <div class="container">
                 <h1>Le jeu du Taquin</h1>
+                <button>LANCER LE JEU</button>
                 <div class="flex game">
-                    <div class="square square-1">1</div>
-                    <div class="square square-2">2</div>
-                    <div class="square square-3">3</div>
-                    <div class="square square-4">4</div>
-                    <div class="square square-5">5</div>
-                    <div class="square square-6">6</div>
-                    <div class="square square-7">7</div>
-                    <div class="square square-8">8</div>
-                    <div class="square square-9">9</div>
-                    <div class="square square-10">10</div>
-                    <div class="square square-11">11</div>
-                    <div class="square square-12">12</div>
-                    <div class="square square-13">13</div>
-                    <div class="square square-14">14</div>
-                    <div class="square square-15">15</div>
+                    <div class="square square-1"></div>
+                    <div class="square square-2"></div>
+                    <div class="square square-3"></div>
+                    <div class="square square-4"></div>
+                    <div class="square square-5"></div>
+                    <div class="square square-6"></div>
+                    <div class="square square-7"></div>
+                    <div class="square square-8"></div>
+                    <div class="square square-9"></div>
+                    <div class="square square-10"></div>
+                    <div class="square square-11"></div>
+                    <div class="square square-12"></div>
+                    <div class="square square-13"></div>
+                    <div class="square square-14"></div>
+                    <div class="square square-15"></div>
                     <div class="square square-16"></div>
                 </div>
                 <div class="counter">Nombre de déplacements: 0</div>
@@ -56,39 +57,39 @@
         var leftList = [0, 100, 200, 300];
         var indiceList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
         var randomIndice = 0;
-        // exo3 aléatoire
-        for (var t = 0; t < topList.length; t++) {
-            for (var l = 0; l <leftList.length; l++) {
-                randomIndice = Math.floor(Math.random()*(indiceList.length));
-                $(".square-"+indiceList[randomIndice]).css("top", topList[t]);
-                $(".square-"+indiceList[randomIndice]).css("left", leftList[l]);
-                indiceList.splice(randomIndice, 1);
-            }
-        }
-
         var counter = 0;
         var clic = 0;
         var seconds = 0;
         var minutes = 0;
         var hours = 0;
 
-        // Bonus2 chrono
-        var chrono = setInterval(function () {
-            seconds++;      
-            if (seconds == 60) {
-                ++minutes;
-                seconds = 0;
+        // exo3 aléatoire
+        $("button").click(function() {
+            for (var t = 0; t < topList.length; t++) {
+            for (var l = 0; l <leftList.length; l++) {
+                randomIndice = Math.floor(Math.random()*(indiceList.length));
+                $(".square-"+indiceList[randomIndice]).css("top", topList[t]);
+                $(".square-"+indiceList[randomIndice]).css("left", leftList[l]);
+                indiceList.splice(randomIndice, 1);
+                }
             }
-            if (minutes == 60) {
-                ++hours;
-                minutes = 0;
-            }
-            $(".time").text("Temps: " + hours +"h " + minutes+ "m " + seconds + "s");
-        },1000);
-        
+            // Bonus2 chrono
+            chrono = setInterval(function () {
+                seconds++;      
+                if (seconds == 60) {
+                    ++minutes;
+                    seconds = 0;
+                }
+                if (minutes == 60) {
+                    ++hours;
+                    minutes = 0;
+                }
+                $(".time").text("Temps: " + hours +"h " + minutes+ "m " + seconds + "s");
+            },1000);
+        })        
 
         // exo2 changement position
-        /* $(".square").click(function() {
+        /*$(".square").click(function() {
             var top16 = $(".square-16").css("top");   //on récupère positions carré vide
             var left16 = $(".square-16").css("left");
             var square16 = $(".square-16");
@@ -104,7 +105,7 @@
         });  */
         
         // exo4 conditions de déplacements
-        $(".square").click(function() {
+            $(".square").click(function() {
             var top16 = $(".square-16").css("top");   //on récupère positions carré vide
             var left16 = $(".square-16").css("left");
             var square16 = $(".square-16");
@@ -150,8 +151,9 @@
                     clearInterval(chrono);
                     $(".time").text("Temps: 00h 00m 00s");
                 })
+
             }
-        }); 
+        });
 
         
 
