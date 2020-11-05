@@ -19,8 +19,10 @@
         4 - Autoriser uniquement le déplacement d'un carré qui est à côté de la zone vide(positions en JS).
         BONUS: Compter les déplacement en temps réel
         BONUS: Ajouter un chronomètre et détecter la fin de la partie
-        BONUS: Adapter le jeu pour que cela fonctionne avec une image (à voir si on peut découper une image en ligne)
+        BIG BONUS: Adapter le jeu pour que cela fonctionne avec une image (On peut découper une image avec un background image et un background position)
+        BONUS: On arrive sur le jeu, on voit l'image complète, on clique sur jouer, elle se mélange, le chrono se déclenche. On pourra également recommencer la partie.
         -->
+
         <div class="page">
             <div class="container">
                 <h1>Le jeu du Taquin</h1>
@@ -65,8 +67,8 @@
                 console.log(indiceList);
             }
         }
-
-        $(".square").click(function() {
+        // petit 2
+        /* $(".square").click(function() {
             var top16 = $(".square-16").css("top");   //on récupère positions carré vide
             var left16 = $(".square-16").css("left");
             var square16 = $(".square-16");
@@ -78,7 +80,37 @@
             square.css("left", left16);
             square16.css("top", topThis);
             square16.css("left", leftThis); 
+        }); */
+
+        // partie 4
+        $(".square").click(function() {
+            var top16 = $(".square-16").css("top");   //on récupère positions carré vide
+            var left16 = $(".square-16").css("left");
+            var square16 = $(".square-16");
+            var topThis = $(this).css("top");
+            var leftThis = $(this).css("left");         // on récupère positions carré cliqué
+            console.log("top16 : " + top16);
+            console.log("left16 : " + left16);
+            console.log("topThis : " + topThis);
+            console.log("leftThis : " + leftThis);
+            var ecartTop = Math.abs(parseInt(top16) - parseInt(topThis));
+            var ecartLeft = Math.abs(parseInt(left16) - parseInt(leftThis));
+            var ecart = ecartTop + ecartLeft;
+            console.log("ecartTop : " + ecartTop);
+            console.log("ecartLeft : " + ecartLeft);
+            console.log("ecart : " + ecart);
+
+            if (ecart == 100) {
+                var leftThis = $(this).css("left");
+                var square = $(this);
+
+                square.css("top", top16);                //interversion des positions et donc des carrés
+                square.css("left", left16);
+                square16.css("top", topThis);
+                square16.css("left", leftThis); 
+            };
         });
+        
 
     </script>
 </body>
