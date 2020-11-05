@@ -120,3 +120,8 @@ h1 {
     cursor: auto;
 }
 
+.counter {
+    position: absolute;
+    top: 480px;
+    left: 560px;
+}

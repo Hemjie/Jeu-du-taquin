@@ -44,6 +44,7 @@
                     <div class="square square-15">15</div>
                     <div class="square square-16"></div>
                 </div>
+                <div class="counter">Nombre de coups: 0</div>
             </div>
         </div>
 
@@ -83,22 +84,17 @@
         }); */
 
         // partie 4
+        var counter = 0;
         $(".square").click(function() {
+            $(".counter").text("Nombre de coups : " + ++counter);
             var top16 = $(".square-16").css("top");   //on récupère positions carré vide
             var left16 = $(".square-16").css("left");
             var square16 = $(".square-16");
             var topThis = $(this).css("top");
             var leftThis = $(this).css("left");         // on récupère positions carré cliqué
-            console.log("top16 : " + top16);
-            console.log("left16 : " + left16);
-            console.log("topThis : " + topThis);
-            console.log("leftThis : " + leftThis);
             var ecartTop = Math.abs(parseInt(top16) - parseInt(topThis));
             var ecartLeft = Math.abs(parseInt(left16) - parseInt(leftThis));
             var ecart = ecartTop + ecartLeft;
-            console.log("ecartTop : " + ecartTop);
-            console.log("ecartLeft : " + ecartLeft);
-            console.log("ecart : " + ecart);
 
             if (ecart == 100) {
                 var leftThis = $(this).css("left");
