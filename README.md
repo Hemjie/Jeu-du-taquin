@@ -1,5 +1,6 @@
 # jQuery-taquin
 création d'un jeu du taquin en jQuery
+une aide pour le résoudre : https://www.instructables.com/How-To-Solve-The-15-Puzzle/
 ![taquin](/maquette-taquin.png)
 
         On va essayer de créer un Taquin (numéros) en Javascript / jQuery
