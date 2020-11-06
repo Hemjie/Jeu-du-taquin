@@ -68,15 +68,34 @@
 
         // exo3 aléatoire
         $("button").click(function() {
-            for (var t = 0; t < topList.length; t++) {
-            for (var l = 0; l < leftList.length; l++) {
-                randomIndice = Math.floor(Math.random()*(indiceList.length));
-                $(".square-"+indiceList[randomIndice]).css("top", topList[t]);
-                $(".square-"+indiceList[randomIndice]).css("left", leftList[l]);
-                indiceList.splice(randomIndice, 1);
+            if($("button").text() == "JOUER") {
+                for (var t = 0; t < topList.length; t++) {
+                for (var l = 0; l < leftList.length; l++) {
+                    randomIndice = Math.floor(Math.random()*(indiceList.length));
+                    $(".square-"+indiceList[randomIndice]).css("top", topList[t]);
+                    $(".square-"+indiceList[randomIndice]).css("left", leftList[l]);
+                    indiceList.splice(randomIndice, 1);
+                    $("button").text("REJOUER");                    
+                    }
                 }
+            } else {
+                indiceList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+                randomIndice = 0;
+                counter = 0;
+                for (var t = 0; t < topList.length; t++) {
+                    for (var l = 0; l < leftList.length; l++) {
+                        randomIndice = Math.floor(Math.random()*(indiceList.length));
+                        $(".square-"+indiceList[randomIndice]).css("top", topList[t]);
+                        $(".square-"+indiceList[randomIndice]).css("left", leftList[l]);
+                        indiceList.splice(randomIndice, 1);
+                    }
+                }
+                clearInterval(chrono);
+                $(".time").text("Temps: 00h 00m 00s");    
+                $(".counter").text("Nombre de déplacements : 0");
             }
             // Bonus2 chrono
+            seconds = 0;
             chrono = setInterval(function () {
                 seconds++;      
                 if (seconds == 60) {
@@ -109,55 +128,58 @@
         
         // exo4 conditions de déplacements
             $(".square").click(function() {
-            var top16 = $(".square-16").css("top");   //on récupère positions carré vide
-            var left16 = $(".square-16").css("left");
-            var square16 = $(".square-16");
-            var topThis = $(this).css("top");
-            var leftThis = $(this).css("left");         // on récupère positions carré cliqué
-            var ecartTop = Math.abs(parseInt(top16) - parseInt(topThis));
-            var ecartLeft = Math.abs(parseInt(left16) - parseInt(leftThis));
-            var ecart = ecartTop + ecartLeft;
+                if($("button").text() == "REJOUER") {
+                    console.log(indiceList);
+                    var top16 = $(".square-16").css("top");   //on récupère positions carré vide
+                    var left16 = $(".square-16").css("left");
+                    var square16 = $(".square-16");
+                    var topThis = $(this).css("top");
+                    var leftThis = $(this).css("left");         // on récupère positions carré cliqué
+                    var ecartTop = Math.abs(parseInt(top16) - parseInt(topThis));
+                    var ecartLeft = Math.abs(parseInt(left16) - parseInt(leftThis));
+                    var ecart = ecartTop + ecartLeft;
 
-            if (ecart == 100) {
-                var leftThis = $(this).css("left");
-                var square = $(this);
+                    if (ecart == 100) {
+                        var leftThis = $(this).css("left");
+                        var square = $(this);
 
-                square.css("top", top16);                //interversion des positions et donc des carrés
-                square.css("left", left16);
-                square16.css("top", topThis);
-                square16.css("left", leftThis); 
-                //bonus1 nb de déplacements
-                $(".counter").text("Nombre de déplacements : " + ++counter);
-            };
+                        square.css("top", top16);                //interversion des positions et donc des carrés
+                        square.css("left", left16);
+                        square16.css("top", topThis);
+                        square16.css("left", leftThis); 
+                        //bonus1 nb de déplacements
+                        $(".counter").text("Nombre de déplacements : " + ++counter);
+                    };
 
-            //Bonus2bis Arrêt du chrono à la fin du jeu
-            console.log("square1 top : " + $(".square-1").css("top"));
-            console.log("square1 left : " + $(".square-1").css("left"));
+                    //Bonus2bis Arrêt du chrono à la fin du jeu
+                    console.log("square1 top : " + $(".square-1").css("top"));
+                    console.log("square1 left : " + $(".square-1").css("left"));
 
-            if ($(".square-1").css("top") == "0px" && $(".square-1").css("left") == "0px"
-            && $(".square-2").css("top") == "0px" && $(".square-2").css("left") == "100px"
-            && $(".square-3").css("top") == "0px" && $(".square-3").css("left") == "200px"
-            && $(".square-4").css("top") == "0px" && $(".square-4").css("left") == "300px"
-            && $(".square-5").css("top") == "100px" && $(".square-5").css("left") == "0px"
-            && $(".square-6").css("top") == "100px" && $(".square-6").css("left") == "100px"
-            && $(".square-7").css("top") == "100px" && $(".square-7").css("left") == "200px"
-            && $(".square-8").css("top") == "100px" && $(".square-8").css("left") == "300px"
-            && $(".square-9").css("top") == "200px" && $(".square-9").css("left") == "0px"
-            && $(".square-10").css("top") == "200px" && $(".square-10").css("left") == "100px"
-            && $(".square-11").css("top") == "200px" && $(".square-11").css("left") == "200px"
-            && $(".square-12").css("top") == "200px" && $(".square-12").css("left") == "300px"
-            && $(".square-13").css("top") == "300px" && $(".square-13").css("left") == "0px"
-            && $(".square-14").css("top") == "300px" && $(".square-14").css("left") == "100px"
-            && $(".square-15").css("top") == "300px" && $(".square-15").css("left") == "200px"
-            && $(".square-16").css("top") == "300px" && $(".square-16").css("left") == "300px") {
-                setTimeout(function() {
-                    clearInterval(chrono);
-                    $(".time").text("Temps: 00h 00m 00s");
-                });                
-                $(".win").css("padding", "10px");
-                $(".win").text("VOUS AVEZ GAGNE!");
-            }
-        });
+                    if ($(".square-1").css("top") == "0px" && $(".square-1").css("left") == "0px"
+                    && $(".square-2").css("top") == "0px" && $(".square-2").css("left") == "100px"
+                    && $(".square-3").css("top") == "0px" && $(".square-3").css("left") == "200px"
+                    && $(".square-4").css("top") == "0px" && $(".square-4").css("left") == "300px"
+                    && $(".square-5").css("top") == "100px" && $(".square-5").css("left") == "0px"
+                    && $(".square-6").css("top") == "100px" && $(".square-6").css("left") == "100px"
+                    && $(".square-7").css("top") == "100px" && $(".square-7").css("left") == "200px"
+                    && $(".square-8").css("top") == "100px" && $(".square-8").css("left") == "300px"
+                    && $(".square-9").css("top") == "200px" && $(".square-9").css("left") == "0px"
+                    && $(".square-10").css("top") == "200px" && $(".square-10").css("left") == "100px"
+                    && $(".square-11").css("top") == "200px" && $(".square-11").css("left") == "200px"
+                    && $(".square-12").css("top") == "200px" && $(".square-12").css("left") == "300px"
+                    && $(".square-13").css("top") == "300px" && $(".square-13").css("left") == "0px"
+                    && $(".square-14").css("top") == "300px" && $(".square-14").css("left") == "100px"
+                    && $(".square-15").css("top") == "300px" && $(".square-15").css("left") == "200px"
+                    && $(".square-16").css("top") == "300px" && $(".square-16").css("left") == "300px") {
+                        setTimeout(function() {
+                            clearInterval(chrono);
+                            $(".time").text("Temps: 00h 00m 00s");
+                        });                
+                        $(".win").css("padding", "10px");
+                        $(".win").text("VOUS AVEZ GAGNE!");
+                    }
+                }
+             });
     </script>
 </body>
 </html>
