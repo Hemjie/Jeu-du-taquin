@@ -7,36 +7,51 @@
     <link rel="stylesheet" href="puzzle.css">
 </head>
 <body>
+    <!-- On va essayer de créer un Taquin (numéros) en Javascript / jQuery
+    http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm
 
-        <div class="page">
-            <div class="container">
-                <h1>Le jeu du Taquin : Hedwige</h1>
-                <button>JOUER</button>
-                <div class="game">
-                    <div class="square square-1"></div>
-                    <div class="square square-2"></div>
-                    <div class="square square-3"></div>
-                    <div class="square square-4"></div>
-                    <div class="square square-5"></div>
-                    <div class="square square-6"></div>
-                    <div class="square square-7"></div>
-                    <div class="square square-8"></div>
-                    <div class="square square-9"></div>
-                    <div class="square square-10"></div>
-                    <div class="square square-11"></div>
-                    <div class="square square-12"></div>
-                    <div class="square square-13"></div>
-                    <div class="square square-14"></div>
-                    <div class="square square-15"></div>
-                    <div class="square square-16"></div>
-                </div>
-                <div class="flex info">
-                    <div class="counter">Nombre de déplacements: 0 </div>
-                    <div class="time"> Temps : 0h 0m 0s</div>
-                </div>
-                <div class="win"></div>
+    
+    On devra utiliser GitHub. Voici la liste des fonctionnalités à implémenter:
+    1 - Créer l'apparence du jeu avec des cases. On va commencer par un 4 par 4.
+        Il faut donc avoir 15 carrés numérotés et une zone vide.
+    2 - Pouvoir cliquer sur un carré et le positionner à la place de la zone vide.
+        Chaque carré doit être positionné (en relatif ou absolu) par rapport à la zone complète du jeu (top et left).
+    3 - Mélanger le jeu aléatoirement à chaque rafraîchissement.
+    4 - Autoriser uniquement le déplacement d'un carré qui est à côté de la zone vide(positions en JS).
+    BONUS: Compter les déplacement en temps réel
+    BONUS: Ajouter un chronomètre et détecter la fin de la partie
+    BIG BONUS: Adapter le jeu pour que cela fonctionne avec une image (On peut découper une image avec un background image et un background position)
+    BONUS: On arrive sur le jeu, on voit l'image complète, on clique sur jouer, elle se mélange, le chrono se déclenche. On pourra également recommencer la partie. -->
+
+    <div class="page">
+        <div class="container">
+            <h1>Le jeu du Taquin : Hedwige</h1>
+            <button>JOUER</button>
+            <div class="game">
+                <div class="square square-1"></div>
+                <div class="square square-2"></div>
+                <div class="square square-3"></div>
+                <div class="square square-4"></div>
+                <div class="square square-5"></div>
+                <div class="square square-6"></div>
+                <div class="square square-7"></div>
+                <div class="square square-8"></div>
+                <div class="square square-9"></div>
+                <div class="square square-10"></div>
+                <div class="square square-11"></div>
+                <div class="square square-12"></div>
+                <div class="square square-13"></div>
+                <div class="square square-14"></div>
+                <div class="square square-15"></div>
+                <div class="square square-16"></div>
             </div>
+            <div class="flex info">
+                <div class="counter">Nombre de déplacements: 0 </div>
+                <div class="time"> Temps : 0h 0m 0s</div>
+            </div>
+            <div class="win"></div>
         </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
@@ -54,7 +69,7 @@
         // exo3 aléatoire
         $("button").click(function() {
             for (var t = 0; t < topList.length; t++) {
-            for (var l = 0; l <leftList.length; l++) {
+            for (var l = 0; l < leftList.length; l++) {
                 randomIndice = Math.floor(Math.random()*(indiceList.length));
                 $(".square-"+indiceList[randomIndice]).css("top", topList[t]);
                 $(".square-"+indiceList[randomIndice]).css("left", leftList[l]);
