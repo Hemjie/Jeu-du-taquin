@@ -91,11 +91,15 @@
                     }
                 }
                 clearInterval(chrono);
+                seconds = 0;
+                minutes = 0;
+                hours = 0;
                 $(".time").text("Temps: 00h 00m 00s");    
                 $(".counter").text("Nombre de déplacements : 0");
+                $(".win").css("padding", "0");
+                $(".win").text("");
             }
             // Bonus2 chrono
-            seconds = 0;
             chrono = setInterval(function () {
                 seconds++;      
                 if (seconds == 60) {
